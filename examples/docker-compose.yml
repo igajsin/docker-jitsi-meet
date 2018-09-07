@@ -10,8 +10,7 @@ services:
       - ./certs:/certs
 
     environment:
-      - HOST=meet.example.com
-
+      - HOST=call.gajsin.name
       - JITSI_VIDEO_PASS=secret1
       - JICOFO_PASS=secret2
       - JICOFO_USER_PASS=secret3
@@ -32,7 +31,7 @@ services:
 
     environment:
       - PROSODY_HOST=prosody
-      - HOST=meet.example.com
+      - HOST=call.gajsin.name
 
       - JICOFO_PASS=secret2
       - JICOFO_USER_PASS=secret3
@@ -52,7 +51,7 @@ services:
       - ./certs:/certs
 
     environment:
-      - HOST=meet.example.com
+      - HOST=call.gajsin.name
       - PROSODY_HOST=prosody
       - ENABLE_ZABBIX=FALSE
       - JITSI_VIDEO_PASS=secret1
@@ -75,10 +74,10 @@ services:
       - ./logs/nginx:/var/log/nginx
       - ./certs:/certs
     environment:
-      - VIRTUAL_HOST=meet.example.com
+      - VIRTUAL_HOST=call.gajsin.name
       - VIRTUAL_NETWORK=nginx-proxy
-      - LETSENCRYPT_HOST=meet.example.com
-      - LETSENCRYPT_EMAIL=email@example.com
+      - LETSENCRYPT_HOST=call.gajsin.name
+      - LETSENCRYPT_EMAIL=igor@gajsin.name
 
       - JITSI_VIDEO_PASS=secret1
       - JICOFO_PASS=secret2
@@ -94,4 +93,3 @@ networks:
   proxy-tier:
     external:
       name: nginx-proxy
-
