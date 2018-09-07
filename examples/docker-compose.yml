@@ -65,8 +65,6 @@ services:
   jitsi-meet:
     build:
       context: ../jitsi-meet
-      args:
-        JITSIMEET_VERSION: "2957"
     container_name: jitsi-meet
     image: jitsi-meet
     volumes:

@@ -5,7 +5,6 @@ ARG JITSIMEET_VERSION
 
 ### Set Environment Variables
 ENV ENABLE_SMTP=FALSE
-ENV JITSIMEET_VERSION=${JITSIMEET_VERSION:-2957}
 
 ### Add User
   RUN set -x ; \
@@ -17,13 +16,14 @@ ENV JITSIMEET_VERSION=${JITSIMEET_VERSION:-2957}
           git \
           nginx \
           make \
-          ; \
+	  npm \
+	  --upgrade ; \
 
 ### Fetch Jitsi Meet
-    curl -sSL https://codeload.github.com/jitsi/jitsi-meet/tar.gz/jitsi-meet_$JITSIMEET_VERSION | tar xvfz - --strip 1 -C /app/ ; \
+    git clone https://github.com/jitsi/jitsi-meet.git --depth 1 /app ; \
     cd /app ; \
 ### Install
-    npm install node-sass@latest ; \
+    npm cache verify ; \
     npm install ; \
     make ; \
 
